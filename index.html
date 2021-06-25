@@ -1,0 +1,94 @@
+    <html lang="pl">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ArizonaRP</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" href="sass/css/main.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/ce9a2f3e3d.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <span class="mouse"></span>
+        <header>
+            <div class="landing-page">
+                <nav>
+                    <div class="navbar">
+                        <div class="logo">
+                            <img src="palm-tree-48.png" alt="palm-tree" width="48px">
+                            <a href="#" class="logo-link">ArizonaRP</a>
+                        </div>
+                        <label>
+                            <input type="checkbox" class="switch-mode-checkbox">
+                            <span class="btn-switch-mode" tabindex="0">
+                                <span class="circle">
+                                    <img src="sun.png" alt="light-sun" class="circle-image">
+                                </span>
+                            </span>
+                        </label>
+                        <ul class="navigation">
+                            <li> <a href="#" class="nav-link active"> Strona</a> </li>
+                            <li> <a href="#" class="nav-link"> Zagraj</a> </li>
+                            <li> <a href="#" class="nav-link"> Dołącz</a> </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="headline-car">
+                    <div class="headline-section">
+                        <h1 class="headline">Stworzona przez graczy dla graczy</h1>
+                        <p class="sub-headline">ArizonaRP została stworzona aby zapewnić rozrywkę, oraz realistyczne i
+                            dynamiczne
+                            doświadczenie RP. Nasz zespół developerski ciągle stara się dodawać unikalną zawartość na
+                            serwer
+                            i
+                            dzięki sugestiom od graczy reguralnie dodajemy nową ekscytująca zawartość.</p>
+                        <a href="#" class="btn-more" title="Dowiedz się wiecęj o naszym serwerze">Więcej</a>
+                    </div>
+                    <div class="car-3d">
+                        <img src="img/christmas-tree-on-the-way.png" width="300px" alt="" class="car">
+                    </div>
+                </div>
+        </header>
+        <script>
+            const navLinks = document.querySelectorAll(".nav-link");
+            navLinks.forEach(link => {
+
+                link.addEventListener("click", () => {
+                    navLinks.forEach(link1 => {
+                        if (link1.classList.contains('active')) {
+                            link1.classList.remove('active');
+                        }
+                    })
+                    link.classList.add("active");
+                })
+            })
+
+            const inputCheckbox = document.querySelector(".switch-mode-checkbox");
+            const circleImage = document.querySelector(".circle-image")
+            const logoPalm = document.querySelector(".logo img");
+            inputCheckbox.addEventListener("click", () => {
+
+                if (inputCheckbox.value == 'on') {
+                    if (circleImage.src.endsWith("sun.png")) {
+                        circleImage.src = "moon.png"
+                    } else {
+                        circleImage.src = "sun.png"
+                    }
+                    if (logoPalm.src.endsWith("palm-tree-48.png")) {
+                        logoPalm.src = "blackpalm.png";
+                    } else {
+                        logoPalm.src = "palm-tree-48.png";
+                    }
+                    document.body.classList.toggle("dark-mode");
+                }
+            });
+        </script>
+    </body>
+
+    </html>
