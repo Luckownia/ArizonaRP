@@ -2,6 +2,16 @@ html {
   font-size: 16px;
 }
 
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: gray;
+}
+
 body,
 *::after,
 *::before {
@@ -138,6 +148,8 @@ body {
   color: var(--secondary-color);
   padding: .6em 1.25em;
   border-radius: 50px;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   text-transform: none;
@@ -166,7 +178,7 @@ input[type="checkbox"] {
   width: 65px;
   height: 25px;
   border-radius: 40px;
-  background-color: gray;
+  background-color: #5f5b5b;
   display: block;
   cursor: pointer;
 }
@@ -251,8 +263,10 @@ input[type="checkbox"]:checked ~ .btn-switch-mode .circle {
 
 .btn-more {
   color: var(--fifth-color);
+  position: relative;
   display: inline-block;
-  background-color: var(--secondary-color);
+  background: white;
+  overflow: hidden;
   font-size: 1.2em;
   padding: 0.8em 3.3em;
   border-radius: 50px;
@@ -262,6 +276,43 @@ input[type="checkbox"]:checked ~ .btn-switch-mode .circle {
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.ripples {
+  position: absolute;
+  pointer-events: none;
+  background: #333232;
+  -webkit-animation: ripples 1s linear infinite;
+          animation: ripples 1s linear infinite;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@-webkit-keyframes ripples {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: .2;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+@keyframes ripples {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: .2;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
 }
 
 .car-3d {
