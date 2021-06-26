@@ -23,6 +23,16 @@ html {
     font-size: 16px;
 }
 
+::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-color: black;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    background-color: gray;
+}
+
 body,
 *::after,
 *::before {
@@ -120,6 +130,7 @@ body {
     color: var(--secondary-color);
     padding: .6em 1.25em;
     border-radius: 50px;
+    transition: background-color .3s;
     @include font($font-family:$font-second, $font-weight:bold);
 
     &:hover {
@@ -143,9 +154,10 @@ input[type="checkbox"] {
     width: 65px;
     height: 25px;
     border-radius: 40px;
-    background-color: gray;
+    background-color: #5f5b5b;
     display: block;
     cursor: pointer;
+
 
     .circle {
         content: "";
@@ -168,15 +180,11 @@ input[type="checkbox"] {
             /*obracanie sie slonca na hover*/
         }
     }
-
 }
 
 input[type="checkbox"]:checked~.btn-switch-mode .circle {
     transform: translate(80%, -50%);
 }
-
-
-
 
 .headline-car {
     @include flex($jcontent:space-between);
@@ -203,14 +211,40 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
 
 .btn-more {
     color: var(--fifth-color);
+    position: relative;
     display: inline-block;
-    background-color: var(--secondary-color);
+    background: white;
+    overflow: hidden;
     font-size: 1.2em;
     padding: 0.8em 3.3em;
     border-radius: 50px;
     margin-top: 1.1em;
     letter-spacing: 2px;
+
     @include font($font-family:$font-second, $font-weight:bold, $text-transform:uppercase);
+}
+
+.ripples {
+    position: absolute;
+    pointer-events: none;
+    background: rgb(51, 50, 50);
+    animation: ripples 1s linear infinite;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+@keyframes ripples {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: .2;
+    }
+
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
 }
 
 .car-3d {
