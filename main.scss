@@ -213,7 +213,7 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
     color: var(--fifth-color);
     position: relative;
     display: inline-block;
-    background: white;
+    background-color: var(--secondary-color);
     overflow: hidden;
     font-size: 1.2em;
     padding: 0.8em 3.3em;
@@ -227,7 +227,7 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
 .ripples {
     position: absolute;
     pointer-events: none;
-    background: rgb(51, 50, 50);
+    background: #333232;
     animation: ripples 1s linear infinite;
     transform: translate(-50%, -50%);
     border-radius: 50%;
