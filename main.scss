@@ -25,12 +25,12 @@ html {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 25px;
-    background-color: black;
+    background-color: var(--fourth-color);
 }
 
 ::-webkit-scrollbar {
     width: 15px;
-    background-color: gray;
+    background-color: var(--fifth-color);
 }
 
 body,
@@ -61,18 +61,28 @@ body {
     position: relative;
 }
 
-/*.mouse {
+.mouse {
+    display: block;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 5px solid white;
-    background-color: transparent;
-    position: absolute;
+    border: 4px solid var(--secondary-color);
+    transform: translate(-50%, -50%);
+    position: fixed;
     top: 50;
     left: 10;
     z-index: 2;
+    pointer-events: none;
+    transition: transform .5s ease-out;
+    background-color: var(--secondary-color);
+
 }
-*/
+
+.cursor-animate {
+    transform: scale(1.5) translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
 
 .landing-page {
     position: relative;
@@ -121,10 +131,6 @@ body {
     border-radius: 50px;
     transition: background-color .3s;
     @include font($font-family:$font-second, $font-weight:bold);
-
-    &:hover {
-        color: var(--fourth-color);
-    }
 }
 
 .nav-link.active {
@@ -236,7 +242,7 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
     }
 }
 
-.car-3d {
+.container-car {
     position: absolute;
     right: 0;
     top: 0;
@@ -246,4 +252,13 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
     height: 100%;
     clip-path: circle(70% at 70% 60%);
     z-index: 0;
+}
+
+.car-3d {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50vw;
+    height: 75%;
 }
