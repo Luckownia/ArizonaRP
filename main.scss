@@ -75,7 +75,6 @@ body {
     pointer-events: none;
     transition: transform .5s ease-out;
     background-color: var(--secondary-color);
-
 }
 
 .cursor-animate {
@@ -261,4 +260,24 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
     transform: translateY(-50%);
     width: 50vw;
     height: 75%;
+}
+
+.buttons {
+    position: absolute;
+    right: 15%;
+    bottom: 30px;
+    display: flex;
+}
+
+.turn-on,
+.turn-off {
+    text-decoration: none;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    border-radius: 50%;
+    @include flex();
+}
+
+.turn-on {
+    margin-right: 25px;
 }
