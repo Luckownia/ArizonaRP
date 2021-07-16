@@ -1,10 +1,10 @@
-  let scene;
+            let scene;
+            
             const container3d = document.querySelector(".car-3d");
 
             function init() {
                 scene = new THREE.Scene();
-
-
+              
                 camera = new THREE.PerspectiveCamera(70, container3d.offsetWidth / container3d.offsetHeight, 1, 5000);
 
                 camera.rotation.y = 45 / 180 * Math.PI;
@@ -43,6 +43,27 @@
                 document.body.appendChild(container3d);
                 container3d.appendChild(renderer.domElement);
 
+                const audio = new THREE.AudioListener();
+                camera.add(audio);
+
+                const sound = new THREE.Audio(audio);
+
+                turnOnButton.addEventListener("click",()=>{
+                    const audioLoader = new THREE.AudioLoader();
+                    audioLoader.load("startMustang.mp3",function (buffer){
+                        sound.setBuffer( buffer );
+                        sound.play();
+                    })
+                })
+
+                turnOffButton.addEventListener("click",()=>{
+                    const audioLoader = new THREE.AudioLoader();
+                    audioLoader.load("endMustang.mp3",function (buffer){
+                        sound.setBuffer( buffer );
+                        sound.play();
+                    })
+                })
+
                 let loader = new THREE.GLTFLoader();
 
                 loader.load('scene.gltf', function (gltf) {
@@ -54,10 +75,6 @@
                     animate();
                 });
             }
-
-
-
-
 
             function animate() {
                 requestAnimationFrame(animate);
