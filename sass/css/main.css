@@ -534,6 +534,9 @@ input[type="checkbox"]:checked~.btn-switch-mode .circle {
     width: 45px;
     height: 45px;
   }
+  .headline-section {
+    margin-top: 90px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
