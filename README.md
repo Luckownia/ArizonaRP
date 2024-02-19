@@ -1,5 +1,4 @@
 # ArizonaRP
-# ArizonaRP
 
 Witaj w projekcie ArizonaRP - stworzonym przez graczy, dla graczy!
 
